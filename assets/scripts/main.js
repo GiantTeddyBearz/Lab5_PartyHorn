@@ -28,16 +28,20 @@ const onChange = e => {
     //volume level change.
     if (e.target.value >= 67) {
         volumeImage.setAttribute("src", "./assets/media/icons/volume-level-3.svg");
+        playButton.disabled = false;
     } else if (e.target.value >= 34) {
         volumeImage.setAttribute("src", "./assets/media/icons/volume-level-2.svg");
+        playButton.disabled = false;
     } else if (e.target.value >= 1) {
         volumeImage.setAttribute("src", "./assets/media/icons/volume-level-1.svg");
+        playButton.disabled = false;
     } else {
         volumeImage.setAttribute("src", "./assets/media/icons/volume-level-0.svg");
+        playButton.disabled = true;
     }
 }
-volumeNumber.addEventListener('change', onChange);
-volumeSlider.addEventListener('change', onChange);
+volumeNumber.addEventListener('input', onChange);
+volumeSlider.addEventListener('input', onChange);
 
 //changing options (air horn/carhorn/party horn), used array made by queryselector
 //added event listener to each item in that array.
